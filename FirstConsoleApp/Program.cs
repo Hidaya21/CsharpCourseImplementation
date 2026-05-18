@@ -97,6 +97,7 @@ namespace FirstConsoleApp
 
                         break;
                     case 4:
+                        //Cancle patient information
                         Console.WriteLine("1) Enter patient Name: ");
                         string pName = Console.ReadLine();
                         Console.WriteLine("2) Enter patient Email: ");
