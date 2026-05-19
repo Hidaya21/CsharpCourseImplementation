@@ -153,7 +153,24 @@ namespace HotelManagementSystem
                         Console.WriteLine("Room Notes: " + roomNotes);
                         Console.WriteLine("Total Notes Length: " + roomNotes.Length);
                         break;
+                    //Search Guest by Name 
                     case 7:
+                        if (isRegistered == false)
+                        {
+                            Console.WriteLine("Please register guest first.");
+                            return;
+                        }
+                        Console.Write("Enter keyword name to search: ");
+                        string keyword = Console.ReadLine().ToLower();
+                        if (guestName.ToLower().Contains(keyword))
+                        {
+                            Console.WriteLine("Guest found: " + guestName);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Guest not found.");
+                        }
+
                         break;
                     case 8:
                         break;
