@@ -122,9 +122,25 @@ namespace HotelManagementSystem
                         Console.WriteLine("Discount Amount: " + Math.Round(discountedAmount));
                         Console.WriteLine("final Bill: " + Math.Abs(amountSaved));
                         break;
+                    //Upgrade Room 
                     case 5:
+                        Console.WriteLine("Enter new room type: ");
+                        string newRoomType = Console.ReadLine();
+                        Console.WriteLine("Enter new nightly rate: ");
+                        double newNightlyRate =double.Parse(Console.ReadLine());
+                        double higherRate = Math.Max(nightlyRate, newNightlyRate);
+                        double lowerRate = Math.Min(nightlyRate, newNightlyRate);
+                        double difference = Math.Abs(nightlyRate - newNightlyRate);
+                        nightlyRate = newNightlyRate;
+                        Console.WriteLine("Room upgraded successfully ");
+                        Console.WriteLine("Old Room Type: " + roomType);
+                        Console.WriteLine("New Room Type: " + newRoomType);
+                        Console.WriteLine("Higher Rate: " + higherRate);
+                        Console.WriteLine("Lower Rate: " + lowerRate);
+                        Console.WriteLine("Difference Per Night: " + difference);
                         break;
                     case 6:
+
                         break;
                     case 7:
                         break;
