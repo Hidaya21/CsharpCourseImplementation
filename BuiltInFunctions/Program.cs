@@ -139,8 +139,19 @@ namespace HotelManagementSystem
                         Console.WriteLine("Lower Rate: " + lowerRate);
                         Console.WriteLine("Difference Per Night: " + difference);
                         break;
+                    //Add Room Service Note
                     case 6:
-
+                        Console.Write("Enter service room note: ");
+                        roomNotes = Console.ReadLine();
+                        if (roomNotes.Length == 0)
+                        {
+                            Console.WriteLine("Note cannot be blank.");
+                            
+                        }
+                        roomNotes = roomNotes.Replace("bad", "good");
+                        Console.WriteLine("Note added successfully.");
+                        Console.WriteLine("Room Notes: " + roomNotes);
+                        Console.WriteLine("Total Notes Length: " + roomNotes.Length);
                         break;
                     case 7:
                         break;
