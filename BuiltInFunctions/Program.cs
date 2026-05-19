@@ -179,17 +179,32 @@ namespace HotelManagementSystem
                         double earnedPoints = Math.Pow(numberOfNights, 2);
                         earnedPoints = Math.Round(earnedPoints);
                         loyaltyPoints = loyaltyPoints + Convert.ToInt32(earnedPoints);
-
                         Console.WriteLine("Earned Points: " + earnedPoints);
-                        Console.WriteLine("Total Loyalty Points: " +
-                            loyaltyPoints);
-                        break;
+                        Console.WriteLine("Total Loyalty Points: " + loyaltyPoints);
+                        break;          
+                    //Print Receipt 
                     case 9:
                         break;
+                    //Edit Guest Name 
                     case 10:
+                        Console.Write("Enter new guest name: ");
+                        string newGuestName = Console.ReadLine().Trim();
+                        if (newGuestName.Length < 3)
+                        {
+                            Console.WriteLine(
+                                "Name must be at least 3 characters.");
+                            break;
+                        }
+                        Console.WriteLine("Uppercase: " + newGuestName.ToUpper());
+                        Console.WriteLine("Lowercase: " +newGuestName.ToLower());
+                        guestName = newGuestName;
+                        Console.WriteLine("Guest name updated successfully.");
+
                         break;
+                    //Exit
                     case 11:
-                        Console.WriteLine("Back to Main Menu ");
+                        Console.WriteLine("Thank you for using Hotel Management System");
+                        Console.WriteLine("Session Ended: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
                         exit = true;
                         break;
                     default:
