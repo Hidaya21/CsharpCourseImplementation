@@ -15,12 +15,12 @@ namespace FirstConsoleApp
             bool exit = false;
             while(exit == false)
             {
-                Console.WriteLine("          Main Menu ");
+                Console.WriteLine("        Main Menu               ");
                 Console.WriteLine("================================");
-                Console.WriteLine("1) Add patient information");
-                Console.WriteLine("2) View patient information ");
-                Console.WriteLine("3) Edit patient information ");
-                Console.WriteLine("4) Cancle patient information ");
+                Console.WriteLine("1) Add patient information      ");
+                Console.WriteLine("2) View patient information     ");
+                Console.WriteLine("3) Edit patient information     ");
+                Console.WriteLine("4) Cancle patient information   ");
                 Console.WriteLine("0) Exit ");
                 Console.WriteLine("Please select an option from the menu: ");
                 int option = int.Parse(Console.ReadLine());

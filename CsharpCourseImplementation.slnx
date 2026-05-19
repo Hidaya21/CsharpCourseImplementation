@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="BuiltInFunctions/HotelManagementSystem.csproj" Id="e5f1a1d4-88d0-4f6e-9b0e-1a4ecfe8a17f" />
   <Project Path="FirstConsoleApp/FirstConsoleApp.csproj" />
 </Solution>
