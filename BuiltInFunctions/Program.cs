@@ -160,19 +160,29 @@ namespace HotelManagementSystem
                             Console.WriteLine("Please register guest first.");
                             return;
                         }
-                        Console.Write("Enter keyword name to search: ");
-                        string keyword = Console.ReadLine().ToLower();
-                        if (guestName.ToLower().Contains(keyword))
-                        {
-                            Console.WriteLine("Guest found: " + guestName);
-                        }
                         else
                         {
-                            Console.WriteLine("Guest not found.");
+                            Console.Write("Enter keyword name to search: ");
+                            string keyword = Console.ReadLine().ToLower();
+                            if (guestName.ToLower().Contains(keyword))
+                            {
+                                Console.WriteLine("Guest found: " + guestName);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Guest not found ");
+                            }
                         }
-
                         break;
+                    //Calculate Loyalty Points
                     case 8:
+                        double earnedPoints = Math.Pow(numberOfNights, 2);
+                        earnedPoints = Math.Round(earnedPoints);
+                        loyaltyPoints = loyaltyPoints + Convert.ToInt32(earnedPoints);
+
+                        Console.WriteLine("Earned Points: " + earnedPoints);
+                        Console.WriteLine("Total Loyalty Points: " +
+                            loyaltyPoints);
                         break;
                     case 9:
                         break;
