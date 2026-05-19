@@ -100,19 +100,27 @@ namespace HotelManagementSystem
                         else
                         {
                             double totalBill = nightlyRate * numberOfNights;
-                            double discountAmount = totalBill * (discountPercentage / 100);
-                            double finalBill = totalBill - discountAmount;
+                            double discountAmount1 = totalBill * (discountPercentage / 100);
+                            double finalBill1 = totalBill - discountAmount1;
                             currentlyCheckedIn = false;
+                            isRegistered = false;
                             Console.WriteLine("Guest checked out successfully ");
-                            Console.WriteLine("Total Bill: " + totalBill);
-                            Console.WriteLine("Discount Amount: " + discountAmount);
-                            Console.WriteLine("final Bill: " + finalBill);
+                            Console.WriteLine("Total Bill: " + Math.Round(totalBill));
+                            Console.WriteLine("Discount Amount: " + Math.Round(discountAmount1));
+                            Console.WriteLine("final Bill: " + Math.Round(finalBill1));
                         }
 
                         break;
+                    //Apply Discount
                     case 4:
-
-
+                        Console.WriteLine("Apply  percentage dicount:  ");
+                         discountPercentage = double.Parse(Console.ReadLine());
+                        double originalAmount = nightlyRate * numberOfNights;
+                        double discountedAmount = originalAmount * (discountPercentage / 100);
+                        double amountSaved = originalAmount - discountedAmount; ;   
+                        Console.WriteLine("Original Amount Bill: " + Math.Round(originalAmount));
+                        Console.WriteLine("Discount Amount: " + Math.Round(discountedAmount));
+                        Console.WriteLine("final Bill: " + Math.Abs(amountSaved));
                         break;
                     case 5:
                         break;
