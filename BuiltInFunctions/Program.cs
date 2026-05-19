@@ -99,13 +99,13 @@ namespace HotelManagementSystem
                         }
                         else
                         {
-                            double totalBill = nightlyRate * numberOfNights;
-                            double discountAmount1 = totalBill * (discountPercentage / 100);
-                            double finalBill1 = totalBill - discountAmount1;
+                            double totalBill1 = nightlyRate * numberOfNights;
+                            double discountAmount1 = totalBill1 * (discountPercentage / 100);
+                            double finalBill1 = totalBill1 - discountAmount1;
                             currentlyCheckedIn = false;
                             isRegistered = false;
                             Console.WriteLine("Guest checked out successfully ");
-                            Console.WriteLine("Total Bill: " + Math.Round(totalBill));
+                            Console.WriteLine("Total Bill: " + Math.Round(totalBill1));
                             Console.WriteLine("Discount Amount: " + Math.Round(discountAmount1));
                             Console.WriteLine("final Bill: " + Math.Round(finalBill1));
                         }
@@ -184,6 +184,35 @@ namespace HotelManagementSystem
                         break;          
                     //Print Receipt 
                     case 9:
+                        Console.WriteLine("-------------------------------------");
+                        Console.WriteLine("             Print Receipt");
+                        Console.WriteLine("-------------------------------------");
+                        string receiptTemplate = "========== PRINT RECEIPT ==========\n" +
+                                                        "Guest Name: {NAME}\n" +
+                                                        "Room Number: {ROOM}\n" +
+                                                        "Room Type: {TYPE}\n" +
+                                                        "Check-In Date: {CHECKIN}\n" +
+                                                        "Check-Out Date: {CHECKOUT}\n" +
+                                                        "Total Bill: {BILL}\n" +
+                                                        "Printed On: {DATE}\n" +
+                                                 "===================================";
+
+                        double totalBill = nightlyRate * numberOfNights;
+                        receiptTemplate = receiptTemplate.Replace("{NAME}", guestName);
+                        receiptTemplate = receiptTemplate.Replace("{ROOM}", Convert.ToString(roomNumber));
+                        receiptTemplate = receiptTemplate.Replace("{TYPE}", roomType);
+                        receiptTemplate = receiptTemplate.Replace("{CHECKIN}", checkInDate.ToString("dd/MM/yyyy"));
+                        receiptTemplate = receiptTemplate.Replace("{CHECKOUT}", checkOutDate.ToString("dd/MM/yyyy"));
+                        receiptTemplate = receiptTemplate.Replace("{BILL}",Convert.ToString(totalBill));
+                        receiptTemplate = receiptTemplate.Replace("{DATE}", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                        Console.WriteLine(receiptTemplate);
+                        string receipt;
+                        receipt = "Guest Name\n" + "Room Number\n" + "Printed Date\n";
+                        receipt = receipt.Replace("Guest Name", guestName);
+                        receipt = receipt.Replace("Room Number", Convert.ToString(roomNumber));
+                        receipt = receipt.Replace("Printed Date", DateTime.Now.ToString());
+                        Console.WriteLine(receipt);
+
                         break;
                     //Edit Guest Name 
                     case 10:
@@ -191,8 +220,7 @@ namespace HotelManagementSystem
                         string newGuestName = Console.ReadLine().Trim();
                         if (newGuestName.Length < 3)
                         {
-                            Console.WriteLine(
-                                "Name must be at least 3 characters.");
+                            Console.WriteLine("Name must be at least 3 characters.");
                             break;
                         }
                         Console.WriteLine("Uppercase: " + newGuestName.ToUpper());
