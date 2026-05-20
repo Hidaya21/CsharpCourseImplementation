@@ -196,7 +196,6 @@ namespace HotelManagementSystem
                                                         "Total Bill: {BILL}\n" +
                                                         "Printed On: {DATE}\n" +
                                                  "===================================";
-
                         double totalBill = nightlyRate * numberOfNights;
                         receiptTemplate = receiptTemplate.Replace("{NAME}", guestName);
                         receiptTemplate = receiptTemplate.Replace("{ROOM}", Convert.ToString(roomNumber));
