@@ -9,21 +9,25 @@ namespace LibraryManagementSystem
 {
     internal class Program
     {
-
+        //member data
         static string memberName = "";
         static string memberId = "";
         static string memberEmail = "";
         static string membershipExpiryDate = "";
         static string memberTier = "";
+        static bool memberIsRegister = false;
+
+        //book data
         static string bookTitle = "";
         static string bookAuthor = "";
         static string bookGener = "";
         static DateTime date = DateTime.Now;
         static int numberBookCopies = 0;
-        static bool memberIsRegister = false;
         static bool bookIsRegister = false;
         static int totalBookBorrowed = 0;
+
         static int totalFinesPaid = 0;
+        string keyword = "";
 
         public static void PrintMenu()
         {
@@ -78,6 +82,43 @@ namespace LibraryManagementSystem
             Console.WriteLine("member email:".PadLeft(5) + memberEmail);
             Console.WriteLine("date time:".PadLeft(5) + Convert.ToString(date));
         }
+
+        //Register Book 
+        public static void RegisterBook(out string bookTitle,out string bookAuthor,out int numberBookCopies, string bookGener = "general")
+        {
+            //if(bookIsRegister == false)
+            //{
+
+            //    Console.Write("book is not registered ");
+            //}
+            //else {
+            Console.Write("Enter book title: ");
+            bookTitle = Console.ReadLine().Trim();
+            Console.Write("Enter book author: ");
+            bookAuthor = Console.ReadLine();
+            Console.Write("Enter number of copies: ");
+             numberBookCopies = int.Parse(Console.ReadLine());
+            Console.Write("Enter genre (press Enter to skip): ");
+             bookGener = Console.ReadLine();
+            bookIsRegister = true;
+            //}
+      
+
+        }
+        //Search book by title
+        public static bool SearchBook(string keyword)
+        {    
+            keyword = keyword.Trim();
+            if (bookTitle.ToLower().Contains(keyword))
+            { 
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
         static void Main(string[] args)
         {
             bool exit = false;
@@ -113,8 +154,34 @@ namespace LibraryManagementSystem
                             DisplayMemberProfile();
                         }
                         break;
+                   //Search book by title
                     case 2:
+                        Console.Write("Enter keyword book title: ");
+                        string keyword = Console.ReadLine().Trim();
+                        //if (bookIsRegister == false)
+                        //{
+                          //  Console.WriteLine("No book registered.");
+                        //}
+                        //else
+                        //{
+                            if (SearchBook(keyword))
+                            {
+                                Console.WriteLine("Book title found: " + bookTitle);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Book title not found.");
+                            }
+                        //}
                         break;
+
+                    //Register Book 
+                    case 8:
+                        
+
+                        RegisterBook( out bookTitle,  out bookAuthor, out numberBookCopies);
+                        break;
+
                 }            
             }
         }
