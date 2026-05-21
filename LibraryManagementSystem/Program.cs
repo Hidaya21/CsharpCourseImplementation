@@ -86,12 +86,6 @@ namespace LibraryManagementSystem
         //Register Book 
         public static void RegisterBook(out string bookTitle,out string bookAuthor,out int numberBookCopies, string bookGener = "general")
         {
-            //if(bookIsRegister == false)
-            //{
-
-            //    Console.Write("book is not registered ");
-            //}
-            //else {
             Console.Write("Enter book title: ");
             bookTitle = Console.ReadLine().Trim();
             Console.Write("Enter book author: ");
@@ -101,9 +95,7 @@ namespace LibraryManagementSystem
             Console.Write("Enter genre (press Enter to skip): ");
              bookGener = Console.ReadLine();
             bookIsRegister = true;
-            //}
-      
-
+ 
         }
         //Search book by title
         public static bool SearchBook(string keyword)
@@ -119,6 +111,20 @@ namespace LibraryManagementSystem
                 return false;
             }
         }
+        //Borrow a Book
+        public static void BorrowBook(ref int copies)
+        {
+            if (copies == 0) 
+            {
+                Console.WriteLine("No copies available!");
+            }
+            else
+            {
+                copies = Math.Max(0, copies - 1);
+            }
+      
+        }
+        
         static void Main(string[] args)
         {
             bool exit = false;
@@ -158,12 +164,12 @@ namespace LibraryManagementSystem
                     case 2:
                         Console.Write("Enter keyword book title: ");
                         string keyword = Console.ReadLine().Trim();
-                        //if (bookIsRegister == false)
-                        //{
-                          //  Console.WriteLine("No book registered.");
-                        //}
-                        //else
-                        //{
+                        if (bookIsRegister == false)
+                        {
+                            Console.WriteLine("No book registered.");
+                        }
+                        else
+                        {
                             if (SearchBook(keyword))
                             {
                                 Console.WriteLine("Book title found: " + bookTitle);
@@ -172,14 +178,28 @@ namespace LibraryManagementSystem
                             {
                                 Console.WriteLine("Book title not found.");
                             }
-                        //}
+                        }
                         break;
+                    //Borrow a Book
+                    case 3:
+                        if (bookIsRegister == false)
+                        {
+                            Console.WriteLine("No book registered.");
+                        }
+                        else
+                        {
+                            BorrowBook(ref numberBookCopies);
+                            Console.WriteLine(numberBookCopies);
+                        }
+                        break;
+
 
                     //Register Book 
                     case 8:
-                        
 
-                        RegisterBook( out bookTitle,  out bookAuthor, out numberBookCopies);
+                    
+                            RegisterBook(out bookTitle, out bookAuthor, out numberBookCopies);
+                     
                         break;
 
                 }            
