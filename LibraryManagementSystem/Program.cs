@@ -25,6 +25,7 @@ namespace LibraryManagementSystem
         static int numberBookCopies = 0;
         static bool bookIsRegister = false;
         static int totalBookBorrowed = 0;
+        static int  maxBookCopies = 0;
 
         static int totalFinesPaid = 0;
         string keyword = "";
@@ -124,7 +125,14 @@ namespace LibraryManagementSystem
             }
       
         }
-        
+        //Return a Book 
+        public static void ReturnBook(ref int copies)
+        {
+            copies =  copies + 1;
+
+        }
+
+
         static void Main(string[] args)
         {
             bool exit = false;
@@ -192,14 +200,23 @@ namespace LibraryManagementSystem
                             Console.WriteLine(numberBookCopies);
                         }
                         break;
-
+                    //Return a Book
+                    case 4:
+                        if (bookIsRegister == false)
+                        {
+                            Console.WriteLine("No book registered.");
+                        }
+                        else
+                        {
+                            ReturnBook(ref numberBookCopies);
+                            Console.WriteLine(numberBookCopies);
+                        }
+                        break;
 
                     //Register Book 
                     case 8:
 
-                    
                             RegisterBook(out bookTitle, out bookAuthor, out numberBookCopies);
-                     
                         break;
 
                 }            
