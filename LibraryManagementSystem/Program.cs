@@ -3,6 +3,7 @@
 
 using Microsoft.VisualBasic;
 using System.Diagnostics.Metrics;
+using System.Timers;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryManagementSystem
@@ -123,7 +124,6 @@ namespace LibraryManagementSystem
             {
                 copies = Math.Max(0, copies - 1);
             }
-      
         }
         //Return a Book 
         public static void ReturnBook(ref int copies)
@@ -131,7 +131,81 @@ namespace LibraryManagementSystem
             copies =  copies + 1;
 
         }
+        //Calculate Late Fine 
+        public static double CalculateFine(int days)
+        {
+            double fine = Math.Sqrt(days) * 2;
+            return Math.Round(fine, 2);
+        }
+        public static double Discount(double amount)
+        {
+            return Math.Round(amount * 0.9, 2);
+        }
 
+        public static double Discount(double amount, string tier)
+        {
+            tier = tier.ToUpper();
+
+            if (tier == "GOLD")
+                return Math.Round(amount * 0.8, 2);
+            else if (tier == "SILVER")
+                return Math.Round(amount * 0.9, 2);
+            else
+                return Math.Round(amount * 0.95, 2);
+        }
+        //Check Borrowing Eligibility
+        public static bool CheckEligibility(string expiry)
+        {
+            DateTime exp = DateTime.Parse(expiry);
+            return exp >= DateTime.Today;
+        }
+        //Generate Member ID 
+        public static string GenerateMemberID()
+        {
+            double val = Math.Sqrt(DateTime.Now.Ticks);
+            return memberName.Substring(0, 2) + ((int)val).ToString();
+        }
+
+        // Display Book Details 
+        public static void DisplayBook(string title, string author, int copies, string genre)
+        {
+            Console.WriteLine("Title: ".PadRight(10) + title);
+            Console.WriteLine("Author: ".PadRight(10) + author);
+            Console.WriteLine("Copies: ".PadRight(10) + copies);
+            Console.WriteLine("Genre: ".PadRight(10) + genre);
+        }
+
+        // Calculate Renewal Fee
+        public static double RenewalFee(int days)
+        {
+            return Math.Round(Math.Ceiling(days * 1.5), 2);
+        }
+
+        public static double RenewalFee(int days, bool premium)
+        {
+            double fee = Math.Ceiling(days * 1.5);
+            if (premium) fee /= 2;
+            return Math.Round(fee, 2);
+        }
+
+        //Update Member Email 
+        public static bool UpdateEmail(string email, out string cleanEmail)
+        {
+            cleanEmail = email.Trim();
+
+            if (cleanEmail.Contains("@") && cleanEmail.Length > 5)
+                return true;
+
+            return false;
+        }
+        //Session Summary 
+        public static void SessionSummary()
+        {
+            Console.WriteLine("Name: " + memberName);
+            Console.WriteLine("Books Borrowed: " + totalBookBorrowed);
+            Console.WriteLine("Total Fines: " + (totalFinesPaid, 2));
+            Console.WriteLine("Date: " + Convert.ToString(DateTime.Now));
+        }
 
         static void Main(string[] args)
         {
@@ -212,14 +286,54 @@ namespace LibraryManagementSystem
                             Console.WriteLine(numberBookCopies);
                         }
                         break;
+                    //Calculate Late Fine 
+                    case 5:
+                        Console.Write("Enter number of Days: ");
+                        int fine = int.Parse(Console.ReadLine());
+                        CalculateFine(fine);
+                        totalFinesPaid = totalFinesPaid + fine;
+                        Console.WriteLine(fine);
+                        break;
+                    case 6:
+                        Console.WriteLine(Discount(100, memberTier));
+                        break;
+                    //Check Borrowing  Eligibility
+                    case 7:
+                         Console.WriteLine(CheckEligibility(membershipExpiryDate));
+                        break;
 
                     //Register Book 
                     case 8:
-
                             RegisterBook(out bookTitle, out bookAuthor, out numberBookCopies);
                         break;
+                    //Generate Member ID 
+                    case 9:
+                        memberId = GenerateMemberID();
+                        Console.WriteLine(memberId);
+                        break;
+                    //Display Book Details 
+                    case 10:
+                        DisplayBook(title: bookTitle, author: bookAuthor, copies: numberBookCopies, genre: bookGener);
+                        break;
+                        //Calculate Renewal Fee
+                    case 11:
+                        Console.WriteLine(RenewalFee(5, true));
+                        break;
+                    //Update Member Email 
+                    case 12:
+                        string clean;
+                        if (UpdateEmail(Console.ReadLine(), out clean))
+                            memberEmail = clean;
+                        break;
+                    //Session Summary 
+                    case 13:
+                        SessionSummary();
+                        break;
 
-                }            
+                }
+                Console.Write(" press any key to countinue...  ");
+                Console.ReadLine();
+                Console.Clear();
             }
         }
     }
