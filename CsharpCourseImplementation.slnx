@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ArraysPracticeTaskSheet/ArraysPracticeTaskSheet.csproj" Id="1ce61ac8-1b32-4756-b4ea-d1faffa68857" />
   <Project Path="BuiltInFunctions/HotelManagementSystem.csproj" Id="e5f1a1d4-88d0-4f6e-9b0e-1a4ecfe8a17f" />
   <Project Path="FirstConsoleApp/FirstConsoleApp.csproj" />
   <Project Path="LibraryManagementSystem/LibraryManagementSystem.csproj" Id="590afd59-00b6-43db-a360-98a522953d3d" />
