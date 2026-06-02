@@ -3,4 +3,5 @@
   <Project Path="BuiltInFunctions/HotelManagementSystem.csproj" Id="e5f1a1d4-88d0-4f6e-9b0e-1a4ecfe8a17f" />
   <Project Path="FirstConsoleApp/FirstConsoleApp.csproj" />
   <Project Path="LibraryManagementSystem/LibraryManagementSystem.csproj" Id="590afd59-00b6-43db-a360-98a522953d3d" />
+  <Project Path="ListPracticeTaskSheet/ListPracticeTaskSheet.csproj" Id="805e2697-b9b4-4152-b9e7-a117a8881478" />
 </Solution>
