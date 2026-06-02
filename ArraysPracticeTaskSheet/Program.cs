@@ -113,7 +113,7 @@ namespace ArraysPracticeTaskSheet
                     }
                     break;
                 case 7:
-                    int[] copies = {0,20,35,30,25,33,15,32,22};
+                    int[] copies = {19,20,35,30,25,33,15,32,22};
                     Console.WriteLine("Original order:");
                     foreach (int copy in copies)
                     {

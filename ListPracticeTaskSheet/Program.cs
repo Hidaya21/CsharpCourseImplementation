@@ -62,12 +62,84 @@
                     }
                     break;
                 case 4:
-                    break;
+                    List<int> finishTimes = new List<int> { 33, 46, 51, 36, 39, 69, 44, 47 };
+                    Console.WriteLine("Original Finish Times:");
+                    foreach (int time in finishTimes)
+                    {
+                        Console.WriteLine(time + " seconds");
+                    }
+                    finishTimes.Sort();
+                    Console.WriteLine("Finish times after sorted:");
+                    foreach (int time in finishTimes)
+                    {
+                        Console.WriteLine(time + " seconds");
+                    }
+                    Console.WriteLine("Number of participants: " + finishTimes.Count);
+                    break;  
                 case 5:
+                    List<int> grades = new List<int> { 99, 96, 87, 98, 100, 90, 94, 89, 88, 91 };
+                    grades.Sort();
+                    grades.Reverse();
+                    Console.WriteLine("ascending order:");
+                    for (int i = 0; i < grades.Count; i++)
+                    {
+                        Console.WriteLine(grades[i]);
+                    }
                     break;
                 case 6:
-                    break;
+                    List<int> quantities = new List<int> { 8, 7, 15, 12, 21, 13, 6, 19 };
+                    int total = 0;
+                    for (int i = 0; i < quantities.Count; i++)
+                    {
+                        total = total + quantities[i];
+                    }
+                    Console.WriteLine("toatal stock: " + total);
+                    double average = total / quantities.Count;
+                    Console.WriteLine("stock per slot: " + average);
+                    int target = 15;
+                    int indexs = quantities.IndexOf(target);
+                    if (indexs != -1)
+                    {
+                        Console.WriteLine("Quantity " + target + " found at index: " + indexs);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Quantity not found .");
+                    }
+                    break; 
                 case 7:
+                    List<int> copies = new List<int> { 19, 20, 35, 30, 25, 33, 15, 32, 22 };
+                    Console.WriteLine("Original order:");
+                    foreach (int copy in copies)
+                    {
+                        Console.WriteLine(copy);
+                    }
+                    copies.Sort();
+                    Console.WriteLine("Sorted order:");
+                    foreach (int copy in copies)
+                    {
+                        Console.WriteLine(copy);
+                    }
+                    int maxCopies = copies[copies.Count - 1];
+                    Console.WriteLine("The title with the most copies: " + maxCopies);
+                    bool hasZero = false;
+                    for (int i = 0; i < copies.Count; i++)
+                    {
+                        if (copies[i] == 0)
+                        {
+                            hasZero = true;
+                            break;
+                        }
+
+                    }
+                    if (hasZero)
+                    {
+                        Console.WriteLine("There is at least one book with zero copies.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No books have zero copies.");
+                    }
                     break;
                 case 8:
                     break;
