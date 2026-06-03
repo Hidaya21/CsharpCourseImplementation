@@ -170,15 +170,71 @@
                     Console.WriteLine("Average Monthly Revenue: " + avrerageRevenue + "OMR");
                     break;
                 case 9:
+                    List<int> seats = new List<int> { 12, 5, 8, 1, 3, 5, 7, 9, 10, 2, 4, 6, 11, 13, 14 };
+                    List<int> reverse = new List<int>();
+
+                    foreach (int seat in seats)
+                    {
+                        Console.WriteLine("seat: " + seat);
+                    }
+                    seats.Sort();
+                    foreach (int seat in seats)
+                    {
+                        Console.WriteLine("seat: " + seat);
+                    }
+                    int target1 = 15;
+                    int index1 = seats.IndexOf(target1);
+                    if (index1 != -1)
+                    {
+                        Console.WriteLine("seat " + target1 + " found at index: " + index1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("seat not found .");
+                    }
+                    reverse = new List<int>(seats);
+                    reverse.Reverse();
+                    Console.WriteLine("Sorted vs Reversed:");
+                    for (int i = 0; i < seats.Count; i++)
+                    {
+                        Console.WriteLine("Sorted:" + seats[i] + " Reversed:" + reverse[i]);
+                    }
+                    Console.WriteLine("Total number of seats: " + seats.Count);
                     break;
                 case 10:
+                    List<int> severity = new List<int> { 5, 2, 8, 1, 4, 3, 7, 6, 2, 9, 10, 3, 4, 5, 1, 6, 7, 8, 2, 3 };
+                    Console.WriteLine("Original Severity Scores:");
+                    foreach (int s in severity)
+                    {
+                        Console.Write(s + " ");
+                    }
+                    Console.WriteLine();
+                    severity.Sort();
+                    Console.WriteLine("Sort Severity Scores:");
+                    foreach (int s in severity)
+                    {
+                        Console.Write(s + " ");
+                    }
+                    Console.WriteLine();
+                    double median = (severity[9] + severity[10]) / 2.0;
+                    Console.WriteLine("Medain: " + median);
+                    int criticalCount = 0;
+                    foreach (int s in severity)
+                    {
+                        if (s <= 3)
+                            criticalCount++;
+                    }
+                    int target2 = 2;
+                    int index2 = severity.IndexOf( target2);
+
+                    if (index2 != -1)
+                        Console.WriteLine("Severity " + target2 + " found it");
+                    else
+                        Console.WriteLine("Severity " + target2 + " not found");
                     break;
 
             }
-            Console.Write(" press any key to countinue...  ");
-            Console.ReadLine();
-            Console.Clear();
-
+  
         }
     }
 }

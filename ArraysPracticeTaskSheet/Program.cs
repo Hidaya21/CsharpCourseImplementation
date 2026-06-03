@@ -310,7 +310,6 @@ namespace ArraysPracticeTaskSheet
                     HospitalPatient();
                     break;
             }
-           
         }
     }
 }
