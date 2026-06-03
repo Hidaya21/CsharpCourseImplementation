@@ -8,10 +8,12 @@ namespace ArraysPracticeTaskSheet
         public static void TemperatureLog()
         {
             double[] temperature = { 35.6, 36.9, 23.7, 34.9, 36.5, 46.4, 36.7 };
+            // Loop through array and print each day's temperature
             for (int i = 0; i < temperature.Length; i++)
             {
                 Console.WriteLine("Day " + (i + 1) + ": " + temperature[i] + " C");
             }
+            // Print total number of readings
             Console.WriteLine("Total readings: " + temperature.Length);
         }
         public static void StudentScoreBoard()
@@ -22,6 +24,7 @@ namespace ArraysPracticeTaskSheet
             {
                 Console.WriteLine(score);
             }
+            // Reverse array order
             Array.Reverse(scores);
             Console.WriteLine("Reversed Order:");
             for (int i = 0; i < scores.Length; i++)
@@ -32,10 +35,12 @@ namespace ArraysPracticeTaskSheet
         public static void ProductPriceFinder()
         {
             double[] price = { 3.5, 4.0, 2.2, 5.5, 6.5 };
+            // Print all product prices
             for (int i = 0; i < price.Length; i++)
             {
                 Console.WriteLine("Product " + (i + 1) + ": " + price[i]);
             }
+            // Target price to search
             double targetPrice = 7.25;
             int index = Array.IndexOf(price, targetPrice);
             if (index != -1)
@@ -55,6 +60,7 @@ namespace ArraysPracticeTaskSheet
             {
                 Console.WriteLine(time + " seconds");
             }
+            // Sort times in ascending order
             Array.Sort(finishTimes);
             Console.WriteLine("Finish times after sorted:");
             foreach (int time in finishTimes)
@@ -66,9 +72,12 @@ namespace ArraysPracticeTaskSheet
         public static void ClassroomGradeReport()
         {
             int[] grades = { 99, 96, 87, 98, 100, 90, 94, 89, 88, 91 };
+            // Sort grades (ascending)
             Array.Sort(grades);
+            // Reverse to make it descending
             Array.Reverse(grades);
             Console.WriteLine("ascending order:");
+            // Print grades
             for (int i = 0; i < grades.Length; i++)
             {
                 Console.WriteLine(grades[i]);
@@ -78,13 +87,16 @@ namespace ArraysPracticeTaskSheet
         {
             int[] quantities = { 8, 7, 15, 12, 21, 13, 6, 19 };
             int total = 0;
+            // Calculate total stock
             for (int i = 0; i < quantities.Length; i++)
             {
                 total = total + quantities[i];
             }
             Console.WriteLine("toatal stock: " + total);
+            // Calculate average stock per slot
             double average = total / quantities.Length;
             Console.WriteLine("stock per slot: " + average);
+            // Search for specific quantity
             int target = 15;
             int indexs = Array.IndexOf(quantities, target);
             if (indexs != -1)
@@ -104,14 +116,17 @@ namespace ArraysPracticeTaskSheet
             {
                 Console.WriteLine(copy);
             }
+            // Sort copies
             Array.Sort(copies);
             Console.WriteLine("Sorted order:");
             foreach (int copy in copies)
             {
                 Console.WriteLine(copy);
             }
+            // Get max value (last element after sorting)
             int maxCopies = copies[copies.Length - 1];
             Console.WriteLine("The title with the most copies: " + maxCopies);
+            // Check if any book has 0 copies
             bool hasZero = false;
             for (int i = 0; i < copies.Length; i++)
             {
@@ -135,23 +150,29 @@ namespace ArraysPracticeTaskSheet
         {
             double[] revenue = { 12500.50, 13800.75, 11200.25, 15600.80, 14950.40, 16700.90, 14250.60, 13500.30, 17100.45, 15900.20, 14800.70, 16250.85 };
             double[] sortedCopy = new double[revenue.Length];
+            // Print monthly revenue
             for (int i = 0; i < revenue.Length; i++)
             {
                 Console.WriteLine("Month" + (i + 1) + ": " + revenue[i] + "OMR");
             }
+            // Copy array (to avoid modifying original)
             for (int i = 0; i < revenue.Length; i++)
             {
                 sortedCopy[i] = revenue[i];
             }
+            // Sort copy
             Array.Sort(sortedCopy);
+            // Print sorted revenue
             for (int i = 0; i < sortedCopy.Length; i++)
             {
                 Console.WriteLine(sortedCopy[i] + "OMR");
             }
+            // Get worst and best month
             double worstRevenue = sortedCopy[0];
             double bestRevenue = sortedCopy[sortedCopy.Length - 1];
             Console.WriteLine($"Worst Month Revenue: " + worstRevenue + "OMR");
             Console.WriteLine($"Best Month Revenue: " + bestRevenue + "OMR");
+            // Calculate total revenue
             double totalRevenue = 0;
             for (int i = 0; i < revenue.Length; i++)
             {
@@ -165,15 +186,19 @@ namespace ArraysPracticeTaskSheet
         {
             int[] seats = { 12, 5, 8, 1, 3, 5, 7, 9, 10, 2, 4, 6, 11, 13, 14 };
             int[] reverse = new int[seats.Length];
+            // Print original seats 
             foreach (int seat in seats)
             {
                 Console.WriteLine("seat: " + seat);
             }
+            // Sort seats
             Array.Sort(seats);
+            // Print sorted seats
             foreach (int seat in seats)
             {
                 Console.WriteLine("seat: " + seat);
             }
+            // Search for a seat
             int target1 = 15;
             int index1 = Array.IndexOf(seats, target1);
             if (index1 != -1)
@@ -184,16 +209,17 @@ namespace ArraysPracticeTaskSheet
             {
                 Console.WriteLine("seat not found .");
             }
+            // Copy + reverse array
             Array.Copy(seats, reverse, seats.Length);
             Array.Reverse(reverse);
-
+            // Compare sorted vs reversed
             Console.WriteLine("Sorted vs Reversed:");
             for (int i = 0; i < seats.Length; i++)
             {
                 Console.WriteLine("Sorted:" + seats[i] + " Reversed:" + reverse[i]);
             }
             Console.WriteLine("Total number of seats: " + seats.Length);
-        }
+        } // Print original severity
         public static void HospitalPatient()
         {
             int[] severity = { 5, 2, 8, 1, 4, 3, 7, 6, 2, 9, 10, 3, 4, 5, 1, 6, 7, 8, 2, 3 };
@@ -203,6 +229,7 @@ namespace ArraysPracticeTaskSheet
                 Console.Write(s + " ");
             }
             Console.WriteLine();
+            // Sort severity
             Array.Sort(severity);
             Console.WriteLine("Sort Severity Scores:");
             foreach (int s in severity)
@@ -210,14 +237,17 @@ namespace ArraysPracticeTaskSheet
                 Console.Write(s + " ");
             }
             Console.WriteLine();
+            // Calculate median
             double median = (severity[9] + severity[10]) / 2.0;
             Console.WriteLine("Medain: " + median);
+            // Count critical cases
             int criticalCount = 0;
             foreach (int s in severity)
             {
                 if (s <= 3)
                     criticalCount++;
             }
+            // Search for severity level
             int target2 = 2;
             int index2 = Array.IndexOf(severity, target2);
 
@@ -244,6 +274,7 @@ namespace ArraysPracticeTaskSheet
             Console.WriteLine("================================= ");
             Console.Write("Enter your choice: ");
             int choice = int.Parse(Console.ReadLine());
+            // Run selected function
             switch (choice)
             {
                 case 1:
