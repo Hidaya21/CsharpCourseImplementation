@@ -219,11 +219,12 @@ namespace ArraysPracticeTaskSheet
                 Console.WriteLine("Sorted:" + seats[i] + " Reversed:" + reverse[i]);
             }
             Console.WriteLine("Total number of seats: " + seats.Length);
-        } // Print original severity
+        } 
         public static void HospitalPatient()
         {
             int[] severity = { 5, 2, 8, 1, 4, 3, 7, 6, 2, 9, 10, 3, 4, 5, 1, 6, 7, 8, 2, 3 };
             Console.WriteLine("Original Severity Scores:");
+            // Print original severity
             foreach (int s in severity)
             {
                 Console.Write(s + " ");
