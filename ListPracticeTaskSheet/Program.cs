@@ -142,6 +142,32 @@
                     }
                     break;
                 case 8:
+                    List<double> revenue = new List<double> { 12500.50, 13800.75, 11200.25, 15600.80, 14950.40, 16700.90, 14250.60, 13500.30, 17100.45, 15900.20, 14800.70, 16250.85 };
+                    double[] sortedCopy = new double[revenue.Count];
+                    for (int i = 0; i < revenue.Count; i++)
+                    {
+                        Console.WriteLine("Month" + (i + 1) + ": " + revenue[i] + "OMR");
+                    }
+                    for (int i = 0; i < revenue.Count; i++)
+                    {
+                        sortedCopy[i] = revenue[i];
+                    }
+                    Array.Sort(sortedCopy);
+                    for (int i = 0; i < sortedCopy.Length; i++)
+                    {
+                        Console.WriteLine(sortedCopy[i] + "OMR");
+                    }
+                    double worstRevenue = sortedCopy[0];
+                    double bestRevenue = sortedCopy[sortedCopy.Length - 1];
+                    Console.WriteLine($"Worst Month Revenue: " + worstRevenue + "OMR");
+                    Console.WriteLine($"Best Month Revenue: " + bestRevenue + "OMR");
+                    double totalRevenue = 0;
+                    for (int i = 0; i < revenue.Count; i++)
+                    {
+                        totalRevenue = totalRevenue + revenue[i];
+                    }
+                    double avrerageRevenue = totalRevenue / revenue.Count;
+                    Console.WriteLine("Average Monthly Revenue: " + avrerageRevenue + "OMR");
                     break;
                 case 9:
                     break;
@@ -149,7 +175,10 @@
                     break;
 
             }
+            Console.Write(" press any key to countinue...  ");
+            Console.ReadLine();
+            Console.Clear();
 
-            }
+        }
     }
 }
