@@ -64,6 +64,70 @@
 
 
         }
+        public static void TextEditorUndoSystem()
+        {
+            Stack<string> undoStack = new Stack<string>();
+            Stack<string> tempStack = new Stack<string>();
+            undoStack.Push("Typed Hello");
+            undoStack.Push("Inserted Image");
+            undoStack.Push("Changed Font Size");
+            undoStack.Push("Bold Text");
+            undoStack.Push("Deleted Paragraph");
+            undoStack.Push("Added Table");
+            undoStack.Push("Saved Document");
+            Console.WriteLine(" Undo History ");
+            foreach (string stack in undoStack)
+            {
+                Console.WriteLine(stack);
+            }
+            Console.WriteLine("current page ");
+            Console.WriteLine(undoStack.Peek());
+            Console.WriteLine("Back Navigation ");
+            string removePage1 = undoStack.Pop();
+            Console.WriteLine(removePage1);
+            string removePage2 = undoStack.Pop();
+            Console.WriteLine("Remaining Undo Historyy ");
+            foreach (string stack in undoStack)
+            {
+                Console.WriteLine(stack);
+            }
+            string actionToRemove = "Deleted: World";
+
+            Console.WriteLine("Before Selective Undo");
+            foreach (string action in undoStack)
+            {
+                Console.WriteLine(action);
+            }
+            while (undoStack.Count > 0)
+            {
+                string currentAction = undoStack.Pop();
+
+                if (currentAction == actionToRemove)
+                {
+                    Console.WriteLine("Selective Undo Removed: " + currentAction);
+                    break;
+                }
+
+                tempStack.Push(currentAction);
+            }
+
+           
+            while (tempStack.Count > 0)
+            {
+                undoStack.Push(tempStack.Pop());
+            }
+            Console.WriteLine("After Selective Undo");
+            foreach (string action in undoStack)
+            {
+                Console.WriteLine(action);
+            }
+            Console.WriteLine("Final Action Count");
+            Console.WriteLine(undoStack.Count);
+
+
+
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("================================= ");
@@ -90,6 +154,7 @@
                     HotelCheckInQueue();
                     break;
                 case 3:
+                    TextEditorUndoSystem();
                     break;
             }
         }
