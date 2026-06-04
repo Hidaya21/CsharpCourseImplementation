@@ -1,4 +1,6 @@
-﻿namespace ListPracticeTaskSheet1
+﻿using System.Collections;
+
+namespace ListPracticeTaskSheet1
 {
     internal class Program
     {
@@ -93,7 +95,7 @@
             }
             string actionToRemove = "Deleted: World";
 
-            Console.WriteLine("Before Selective Undo");
+            Console.WriteLine("Before Selective Undo:");
             foreach (string action in undoStack)
             {
                 Console.WriteLine(action);
@@ -126,23 +128,80 @@
 
 
 
-        }
 
+        }
+        public static void HospitalEmergencyRoomTriage()
+        {
+            Queue<string> triageQueue = new Queue<string>();
+            Queue<string> tempQueue = new Queue<string>();
+            triageQueue.Enqueue("Salim");
+            triageQueue.Enqueue("Sara");
+            triageQueue.Enqueue("Sami");
+            triageQueue.Enqueue("Salah");
+            triageQueue.Enqueue("Samir");
+            triageQueue.Enqueue("Suad");
+            triageQueue.Enqueue("Sultan");
+            triageQueue.Enqueue("Sumia");
+            foreach (string queue in triageQueue)
+            {
+                Console.WriteLine(queue);
+            }
+            Console.WriteLine("current page: ");
+            Console.WriteLine(triageQueue.Peek());
+            Console.WriteLine("Back Navigation: ");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(triageQueue.Dequeue());
+            }
+            Console.WriteLine("Remaining Queue: ");
+            foreach (string queue in triageQueue)
+            {
+                Console.WriteLine(queue);
+            }
+            string MidQueueRemoval = "Salah";
+            while(triageQueue.Count > 0)
+            {
+                string current = triageQueue.Dequeue();
+                if (current != MidQueueRemoval)
+                {
+                    tempQueue.Enqueue(current);
+
+                }
+            }
+            while (tempQueue.Count > 0)
+            {
+                triageQueue.Enqueue(tempQueue.Dequeue());
+            }
+            Console.WriteLine("The final queue ");
+            foreach (string queue in triageQueue)
+            {
+                Console.WriteLine(queue);
+            }
+            Console.WriteLine("Final Count: " + triageQueue.Count);
+
+
+
+        }
+        public static void ReverseSentenceWord()
+        {
+      
+
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("================================= ");
             Console.WriteLine("           Proplems ");
             Console.WriteLine("================================= ");
-            Console.WriteLine("1:  Browser History Tracker ");
+            Console.WriteLine("1: Browser History Tracker ");
             Console.WriteLine("2: Hotel Check-In Queue ");
             Console.WriteLine("3: Text Editor Undo System   ");
-            Console.WriteLine("4:  Hospital Emergency Room Triage   ");
-            Console.WriteLine("5:Parenthesis Validator   ");
-            Console.WriteLine("6:  Print Spooler with Priority Re-Insertion ");
-            Console.WriteLine("7:  Reverse a Sentence Word by Word");
+            Console.WriteLine("4: Hospital Emergency Room Triage   ");
+            Console.WriteLine("5: Parenthesis Validator   ");
+            Console.WriteLine("6: Print Spooler with Priority Re-Insertion ");
+            Console.WriteLine("7: Reverse a Sentence Word by Word");
             Console.WriteLine("8: Multi-Level Undo with Redo ");
-            Console.WriteLine("9:  Ticket Counter Simulation ");
-            Console.WriteLine("10: Order Processing Pipeline with Statistics");
+            Console.WriteLine("9: Ticket Counter Simulation ");
+            Console.WriteLine("10:Order Processing Pipeline with Statistics");
             Console.WriteLine("================================= ");
             Console.Write("Enter your choice: ");
             int choice = int.Parse(Console.ReadLine());
@@ -156,6 +215,14 @@
                 case 3:
                     TextEditorUndoSystem();
                     break;
+                case 4:
+                    HospitalEmergencyRoomTriage();
+                    break;
+                case 7:
+                    break;
+                case 9:
+                    break;
+
             }
         }
     }
