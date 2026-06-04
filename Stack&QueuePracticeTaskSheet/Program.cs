@@ -184,10 +184,35 @@ namespace ListPracticeTaskSheet1
         }
         public static void ReverseSentenceWord()
         {
-      
-
+            Stack<string> wordStack = new Stack<string>();
+            string reversedWords = "";
+            string sentence1 = "C# is fun to learn";
+            string sentence2 = "I am programm";
+            string[] sentences = { sentence1, sentence2 };
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                Console.WriteLine(" TEST CASE " + (i + 1));
+                string sentence = sentences[i];
+                Console.WriteLine("Original Sentence: " + sentence);
+                string[] words = sentence.Split(' ');
+                foreach (string word in words)
+                {
+                    wordStack.Push(word);
+                }
+                Console.WriteLine("Stack Contents:");
+                foreach (string word in wordStack)
+                {
+                    Console.WriteLine(word);
+                }
+                while (wordStack.Count > 0)
+                {
+                    reversedWords = reversedWords + wordStack.Pop();
+                }
+                Console.WriteLine("Reversed Sentence: " + reversedWords.Trim());
+                Console.WriteLine("Stack Count: " + wordStack.Count);
+            }
         }
-        static void Main(string[] args)
+                static void Main(string[] args)
         {
             Console.WriteLine("================================= ");
             Console.WriteLine("           Proplems ");
@@ -199,7 +224,7 @@ namespace ListPracticeTaskSheet1
             Console.WriteLine("5: Parenthesis Validator   ");
             Console.WriteLine("6: Print Spooler with Priority Re-Insertion ");
             Console.WriteLine("7: Reverse a Sentence Word by Word");
-            Console.WriteLine("8: Multi-Level Undo with Redo ");
+            Console.WriteLine("8: Multi Level Undo with Redo ");
             Console.WriteLine("9: Ticket Counter Simulation ");
             Console.WriteLine("10:Order Processing Pipeline with Statistics");
             Console.WriteLine("================================= ");
@@ -219,6 +244,7 @@ namespace ListPracticeTaskSheet1
                     HospitalEmergencyRoomTriage();
                     break;
                 case 7:
+                    ReverseSentenceWord();
                     break;
                 case 9:
                     break;
