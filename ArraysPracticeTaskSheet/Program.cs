@@ -135,7 +135,6 @@ namespace ArraysPracticeTaskSheet
                     hasZero = true;
                     break;
                 }
-
             }
             if (hasZero)
             {

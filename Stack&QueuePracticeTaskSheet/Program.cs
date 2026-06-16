@@ -62,10 +62,7 @@ namespace ListPracticeTaskSheet1
             Console.WriteLine("Guest Search");
             Console.WriteLine(searchGuest + " is still waiting: " + checkInQueue.Contains(searchGuest));
             Console.WriteLine("Total Guests Remaining ");
-            Console.WriteLine(checkInQueue.Count);
-
-
-        }
+            Console.WriteLine(checkInQueue.Count);}
         public static void TextEditorUndoSystem()
         {
             Stack<string> undoStack = new Stack<string>();
@@ -94,7 +91,6 @@ namespace ListPracticeTaskSheet1
                 Console.WriteLine(stack);
             }
             string actionToRemove = "Deleted: World";
-
             Console.WriteLine("Before Selective Undo:");
             foreach (string action in undoStack)
             {
@@ -109,11 +105,8 @@ namespace ListPracticeTaskSheet1
                     Console.WriteLine("Selective Undo Removed: " + currentAction);
                     break;
                 }
-
                 tempStack.Push(currentAction);
-            }
-
-           
+            }  
             while (tempStack.Count > 0)
             {
                 undoStack.Push(tempStack.Pop());
@@ -125,10 +118,6 @@ namespace ListPracticeTaskSheet1
             }
             Console.WriteLine("Final Action Count");
             Console.WriteLine(undoStack.Count);
-
-
-
-
         }
         public static void HospitalEmergencyRoomTriage()
         {
@@ -212,7 +201,31 @@ namespace ListPracticeTaskSheet1
                 Console.WriteLine("Stack Count: " + wordStack.Count);
             }
         }
-                static void Main(string[] args)
+        public static void PrintSpoolerwithPriorityReInsertion(){
+            Queue<string> regularQueue = new Queue<string>();
+            Queue<string> vipQueue = new Queue<string>();
+            regularQueue.Enqueue("R001");
+            regularQueue.Enqueue("R002");
+            regularQueue.Enqueue("R003");
+            regularQueue.Enqueue("R004");
+            vipQueue.Enqueue("V001");
+            vipQueue.Enqueue("V002");
+            vipQueue.Enqueue("V003");
+            Console.WriteLine("VIP Queue:");
+            foreach (string ticket in vipQueue)
+            {
+                Console.WriteLine(ticket);
+            }
+            Console.WriteLine("Regular Queue:");
+            foreach (string ticket in regularQueue)
+            {
+                Console.WriteLine(ticket);
+            }
+
+
+
+        }
+        static void Main(string[] args)
         {
             Console.WriteLine("================================= ");
             Console.WriteLine("           Proplems ");
@@ -247,6 +260,7 @@ namespace ListPracticeTaskSheet1
                     ReverseSentenceWord();
                     break;
                 case 9:
+                    PrintSpoolerwithPriorityReInsertion();
                     break;
 
             }
